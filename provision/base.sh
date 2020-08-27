@@ -1,5 +1,6 @@
 #!/bin/sh
 sudo apt-get update
+sudo apt-get upgrade
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 apt-transport-https \
 bzip2 \
@@ -17,4 +18,4 @@ software-properties-common \
 tar \
 unzip \
 wget \
-zip
+zip 
