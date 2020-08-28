@@ -23,16 +23,13 @@ Vagrant.configure('2') do |config|
     # vb.customize ['setextradata', :id, 'GUI/HiDPI/UnscaledOutput', '1']
   end
 
-  config.vm.provision 'shell', privileged: false, path: 'provision/base.sh', name: 'base.sh'	
-  config.vm.provision 'shell', privileged: false, path: 'provision/xfce4.sh', name: 'xfce64.sh'	
-  config.vm.provision 'shell', privileged: false, path: 'provision/keyboard.sh', name: 'keyboard.sh' 
-  config.vm.provision 'shell', privileged: false, path: 'provision/google-chrome.sh', name: 'google-chrome.sh' 
-  config.vm.provision 'shell', privileged: false, path: 'provision/vs-code.sh', name: 'vs-code.sh' 
-  config.vm.provision 'shell', privileged: false, path: 'provision/wireshark.sh', name: 'wireshark.sh' 
-  config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh' 
-  config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh' 
+  config.vm.provision 'shell', privileged: false, path: 'provision/base.sh', name: 'base.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/xfce4.sh', name: 'lubuntu.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/keyboard.sh', name: 'keyboard.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/google-chrome.sh', name: 'google-chrome.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/vs-code.sh', name: 'vs-code.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/wireshark.sh', name: 'wireshark.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh'
 
 end
-
-
-
