@@ -31,5 +31,6 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/wireshark.sh', name: 'wireshark.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/apache.sh', name: 'apache.sh'
 
 end
