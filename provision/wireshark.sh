@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo apt-get -y install wireshark
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
