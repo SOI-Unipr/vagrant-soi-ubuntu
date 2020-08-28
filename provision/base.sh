@@ -1,7 +1,9 @@
 #!/bin/sh
 
-sudo apt-get update
-sudo apt-get upgrade
+echo "$(whoami):$(whoami)" | sudo chpasswd
+
+sudo DEBIAN_FRONTEND=noninteractive apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
      apt-transport-https \

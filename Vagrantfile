@@ -15,7 +15,7 @@ Vagrant.configure('2') do |config|
     vb.memory = 4096
     vb.cpus = 2
     vb.customize ['modifyvm', :id, '--vram', '256']
-    vb.customize ['modifyvm', :id, '--accelerate2dvideo', 'off']
+    vb.customize ['modifyvm', :id, '--accelerate2dvideo', 'on']
     # vb.customize ['modifyvm', :id, '--accelerate3d', 'on']
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     #vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
@@ -32,5 +32,6 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/apache.sh', name: 'apache.sh'
-
+  config.vm.provision 'shell', privileged: false, path: 'provision/upgrade.sh', name: 'upgrade.sh'
+  
 end
