@@ -7,5 +7,3 @@ sudo VBoxClient --clipboard
 #sudo VBoxClient --display
 sudo VBoxClient --draganddrop
 sudo VBoxClient --seamless
-
-echo "$(whoami):$(whoami)" | sudo chpasswd
