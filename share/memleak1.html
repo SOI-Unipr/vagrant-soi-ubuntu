@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>    
+    <title>Demo: Simulate memory leak with JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      h1 {
+        font-size: 1.5em
+      }
+      input, button {
+        min-width: 72px;
+        min-height: 36px;
+        border: 1px solid grey;
+      }
+      label, input, button {
+        display: block;
+      }
+      input {
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo: Simulate DOM memory leak with JavaScript</h1>
+    
+    <button id="create">Start growing</button>
+    <p></p>
+    <script>
+    var detachedTree;
+
+    function create() {
+      var ul = document.createElement('ul');
+      for (var i = 0; i < 100; i++) {
+        var li = document.createElement('li');
+        ul.appendChild(li);
+      }
+      detachedTree = ul;
+    }
+
+    document.getElementById('create').addEventListener('click', create);
+    </script>
+  </body>
+</html>
+
