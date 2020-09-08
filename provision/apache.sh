@@ -18,10 +18,10 @@ sudo rm -rf html
 
 cd /var/www/devtools-samples
 sudo mkdir memleak
-cm memleak
+cd memleak
 
-sudo wget sudo wget https://github.com/danieleporta/vagrant-soi-ubuntu/tree/master/share/memleak1.html
-sudo wget sudo wget https://github.com/danieleporta/vagrant-soi-ubuntu/tree/master/share/memleak2html
+sudo wget sudo wget https://raw.githubusercontent.com/danieleporta/vagrant-soi-ubuntu/master/share/memleak1.html
+sudo wget sudo wget https://raw.githubusercontent.com/danieleporta/vagrant-soi-ubuntu/master/share/memleak2.html
 
 #enable new site
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/default.conf
