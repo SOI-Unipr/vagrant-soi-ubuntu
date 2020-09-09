@@ -8,4 +8,3 @@ if ! [ "$inst" = "installed" ]; then
     sudo chown :www-data /var/www
     sudo chmod g+sw /var/www
 fi
-
