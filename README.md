@@ -1,8 +1,7 @@
-# vagrant-xfce4-ubuntu
+# SOI Ubuntu 20.04
 
-Vagrant-based development environment using [Ubuntu](https://xubuntu.org/), with GUI (i.e., not headless). The Xfce Desktop Environment is used instead of the default Unity for performance reasons.
-
-The Vagrant base box is the official Ubuntu 16.04 (Xenial Xerus) 64-bit box [available from Hashicorp Atlas](https://atlas.hashicorp.com/ubuntu/boxes/xenial64).
+This is the Vagrant project to setup a virtual machine for the course "Sistemi Orientati ad Internet"
+at the University of Parma in 2020/2021.
 
 ## Installation
 
@@ -19,8 +18,10 @@ The `ubuntu` user password is `ubuntu`.
 
 ## Notes
 
-* Add your local customisation to `provision/local.sh`.
-* Edit `provision/nodejs.sh` to select your NodeJS version.
-* [nvm](https://github.com/creationix/nvm) is also installed, so it provides another mechanism to switch to other NodeJS versions.
-* The Vagrantfile copies your private key to the VM so you can access Github et al. via SSH. It assumes the private key file can be found in `~/.ssh/id_rsa` on the host machine.
-* You can also SSH to the VM as user `ubuntu`, using `vagrant ssh`
+* If Wireshark requires root privileges to be run, please execute the following caommands:
+
+    ```
+    sudo dpkg-reconfigure wireshark-common
+    sudo usermod -a -G wireshark vagrant
+    ```
+
