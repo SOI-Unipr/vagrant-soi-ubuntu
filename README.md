@@ -1,3 +1,5 @@
+![](logo.png)
+
 # SOI Ubuntu 20.04
 
 This is the Vagrant project to setup a virtual machine for the course "Sistemi Orientati ad Internet"
@@ -24,4 +26,3 @@ The `ubuntu` user password is `ubuntu`.
     sudo dpkg-reconfigure wireshark-common
     sudo usermod -a -G wireshark vagrant
     ```
-
