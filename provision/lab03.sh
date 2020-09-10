@@ -1,7 +1,10 @@
 #!/bin/sh
 
-DOC_ROOT=/var/www/lab02
-[ -d $DOC_ROOT ] || mkdir $DOC_ROOT
+DOC_ROOT=/var/www/lab03
+if ! [ -d $DOC_ROOT ]; then
+    mkdir $DOC_ROOT
+    cp -r /vagrant/labs/lab03/* $DOC_ROOT/
+fi
 
 if ! [ -f /etc/apache2/sites-available/lab03.conf ]; then
     sudo cp /vagrant/provision/lab03-apache.conf /etc/apache2/sites-available/lab03.conf
