@@ -34,14 +34,17 @@ fi
 # remove default dir
 [ -d /var/www/html ] && sudo rm -rf /var/www/html
 
+# enable host resolution
+if ! grep soi-lab02 /etc/hosts &> /dev/null; then
+    echo "\n# custom configuration" | sudo tee -a /etc/hosts
+    echo "127.0.0.1       soi-lab02" | sudo tee -a /etc/hosts
+fi
+
 # enable new site
 if ! [ -f /etc/apache2/sites-available/lab02.conf ]; then
     sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/lab02.conf
     sudo sed -i 's%DocumentRoot /var/www/html%DocumentRoot /var/www/lab02%' /etc/apache2/sites-available/lab02.conf
     sudo sed -i 's/#ServerName www.example.com/ServerName soi-lab02/' /etc/apache2/sites-available/lab02.conf
-
-    echo "\n# custom configuration" | sudo tee -a /etc/hosts
-    echo "127.0.0.1       soi-lab02" | sudo tee -a /etc/hosts
 
     sudo a2dissite 000-default.conf
     sudo a2ensite lab02
