@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 inst=$(dpkg-query --show --showformat='${db:Status-Status}\n' 'google-chrome-stable')
 

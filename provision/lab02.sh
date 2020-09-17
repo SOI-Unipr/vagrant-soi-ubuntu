@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOC_ROOT=/var/www/lab02
 [ -d $DOC_ROOT ] || mkdir $DOC_ROOT

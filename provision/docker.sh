@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install lsb-release
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

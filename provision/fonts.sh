@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install unzip
 sudo mkdir -p /usr/local/share/fonts/truetype/open-sans

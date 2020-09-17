@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 sudo touch /etc/sysctl.conf
 echo 'fs.inotify.max_user_watches = 524288' | sudo tee -a /etc/sysctl.conf
 if [ ! -f /vagrant/share/ideaIC-2017.1.2-no-jdk.tar.gz ]; then

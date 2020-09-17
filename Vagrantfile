@@ -31,6 +31,7 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/wireshark.sh', name: 'wireshark.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/python.sh', name: 'python.sh'
   # NOTE: apache.sh changes user privileges, so `reset` is required to let user gain those privileges
   config.vm.provision 'shell', privileged: false, path: 'provision/apache.sh', name: 'apache.sh', reset: true
   config.vm.provision 'shell', privileged: false, path: 'provision/upgrade.sh', name: 'upgrade.sh'
@@ -39,5 +40,7 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/lab02.sh', name: 'lab02.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/lab03.sh', name: 'lab03.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/lab04.sh', name: 'lab04.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/lab05.sh', name: 'lab05.sh'
+  # config.vm.provision 'shell', privileged: false, path: 'provision/lab06.sh', name: 'lab06.sh'
 
 end

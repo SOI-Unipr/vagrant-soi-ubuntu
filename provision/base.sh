@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "$(whoami):$(whoami)" | sudo chpasswd
 

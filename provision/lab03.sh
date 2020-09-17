@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOC_ROOT=/var/www/lab03
 if ! [ -d $DOC_ROOT ]; then
