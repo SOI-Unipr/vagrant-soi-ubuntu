@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! [ -d $HOME/.nvm ]; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 
     cp .bashrc .bashrc.old
 

@@ -6,7 +6,7 @@ DOC_ROOT=/var/www/lab02
 # copy bootstrap example
 if ! [ -d $DOC_ROOT/bootstrap-examples ]; then
     cd $DOC_ROOT/
-    wget https://github.com/twbs/bootstrap/releases/download/v4.5.2/bootstrap-4.5.2-examples.zip
+    wget -q https://github.com/twbs/bootstrap/releases/download/v4.5.2/bootstrap-4.5.2-examples.zip
     unzip bootstrap-4.5.2-examples.zip
     mv bootstrap-4.5.2-examples bootstrap-examples
     rm -rf bootstrap-examples/bootstrap-4.5.2-examples
@@ -16,7 +16,7 @@ fi
 # copy chrome devtools examples
 if ! [ -d $DOC_ROOT/devtools-samples ]; then
     cd $DOC_ROOT
-    wget https://github.com/GoogleChrome/devtools-samples/archive/master.zip
+    wget -q https://github.com/GoogleChrome/devtools-samples/archive/master.zip
     unzip master.zip
     mv devtools-samples-master devtools-samples
     rm -rf devtools-samples/devtools-samples-master

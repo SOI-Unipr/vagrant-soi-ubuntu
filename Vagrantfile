@@ -32,9 +32,11 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/nvm.sh', name: 'nvm.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/node.sh', name: 'node.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/python.sh', name: 'python.sh'
-  # NOTE: apache.sh changes user privileges, so `reset` is required to let user gain those privileges
-  config.vm.provision 'shell', privileged: false, path: 'provision/apache.sh', name: 'apache.sh', reset: true
-  config.vm.provision 'shell', privileged: false, path: 'provision/upgrade.sh', name: 'upgrade.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/docker.sh', name: 'docker.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/apache.sh', name: 'apache.sh'
+  # the `reset` flag makes sure user vagrant has gained privileges set by docker.sh and
+  # apache.sh before labs are provisioned (vagrant will re-establish the ssh connection)
+  config.vm.provision 'shell', privileged: false, path: 'provision/pre-labs.sh', name: 'pre-labs.sh', reset: true
 
   # labs
   config.vm.provision 'shell', privileged: false, path: 'provision/lab02.sh', name: 'lab02.sh'

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-
-inst=$(dpkg-query --show --showformat='${db:Status-Status}\n' 'wireshark')
+pkg=wireshark
+inst=$(dpkg-query --show --showformat='${db:Status-Status}\n' "$pkg")
 
 if ! [ "$inst" = "installed" ]; then
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install wireshark
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install "$pkg"
     yes | sudo dpkg-reconfigure -f teletype wireshark-common
-    sudo usermod -a -G wireshark vagrant
+    sudo usermod -a -G wireshark $(whoami)
 fi

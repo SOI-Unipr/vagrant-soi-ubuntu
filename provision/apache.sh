@@ -1,10 +1,11 @@
 #!/bin/bash
 
-inst=$(dpkg-query --show --showformat='${db:Status-Status}\n' 'apache2')
+pkg=apache2
+inst=$(dpkg-query --show --showformat='${db:Status-Status}\n' "$pkg")
 
 if ! [ "$inst" = "installed" ]; then
-    sudo apt-get install -y apache2
-    sudo usermod -a -G www-data vagrant
+    sudo apt-get install -y "$pkg"
+    sudo usermod -a -G www-data $(whoami)
     sudo chown :www-data /var/www
     sudo chmod g+sw /var/www
 fi
