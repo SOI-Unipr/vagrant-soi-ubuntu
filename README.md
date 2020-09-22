@@ -16,7 +16,7 @@ Clone this repository, then from the repository folder run this command:
 
     vagrant up && vagrant reload
 
-The `ubuntu` user password is `ubuntu`.
+The `vagrant` user password is `vagrant`.
 
 ## Notes
 
