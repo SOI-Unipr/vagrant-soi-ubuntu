@@ -44,5 +44,6 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', privileged: false, path: 'provision/lab04.sh', name: 'lab04.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/lab05.sh', name: 'lab05.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/lab06.sh', name: 'lab06.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/lab07.sh', name: 'lab07.sh'
 
 end

@@ -1,0 +1,61 @@
+# Usage: docker-compose up -d
+#        (docker-compose down)
+
+version: "3.3"
+
+services:
+
+  # Traefik router
+  # see https://doc.traefik.io/traefik/user-guides/docker-compose/basic-example/
+  # NOTE: see https://github.com/traefik/traefik/issues/994
+  reverse-proxy:
+    image: traefik:v2.2
+    # Enables the web UI and tells Traefik to listen to docker
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--providers.docker.exposedbydefault=false"
+    ports:
+      # The HTTP port
+      - "${PROXY_PORT}:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "${PROXY_UI_PORT}:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  # Frontend
+  todo-app:
+    image: maps/todo-app:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.todo-app.rule=Host(`soi-lab07`, `www.soi-lab07`, `lab07.soi`)"
+      - "traefik.http.routers.todo-app.entrypoints=web"
+      - traefik.http.services.todo-app.loadbalancer.server.port=80
+#    ports:
+#      - "${TODO_APP_PORT}:80"
+
+  # Backend
+  todo-server:
+    image: maps/todo-server:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.todo-server.rule=Host(`soi-lab07`, `www.soi-lab07`, `lab07.soi`) && PathPrefix(`/api`)"
+      # see https://doc.traefik.io/traefik/migration/v1-to-v2/
+      - "traefik.http.routers.todo-server.middlewares=todo-server-stripprefix"
+      - "traefik.http.middlewares.todo-server-stripprefix.stripprefix.prefixes=/api"
+      - "traefik.http.routers.todo-server.entrypoints=web"
+      - traefik.http.services.todo-server.loadbalancer.server.port=8000
+    volumes:
+      - "${TODO_SERVER_LOGS_DIR}:/srv/logs"
+#    ports:
+#      - "${TODO_SERVER_PORT}:8000"
+
+#networks:
+#  default:
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.21.0.0/16
